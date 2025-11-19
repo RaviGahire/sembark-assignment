@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 
 export const HomePage = () => {
   const sampleProducts = [
@@ -45,8 +46,6 @@ export const HomePage = () => {
     }
   ];
 
-
-
   return (
     <>
       {/* text-[#312D81] #17152B */}
@@ -63,39 +62,35 @@ export const HomePage = () => {
         </div>
         {/* product grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 place-items-center  h-screen  mt-4 ">
+          {
+            sampleProducts.map((item, index) => (
+              <>
+                {/* Product Card */}
+                <div className="flex flex-col items-center shadow-xl w-80 border border-gray-300  p-5 rounded-2xl cursor-pointer">
+                  <h2 className="text-xl font-semibold tracking-tight">{item.name}</h2>
 
-      {
-        sampleProducts.map((item,index)=>(
-          <>
-              {/* Product Card */}
-          <div className="flex flex-col items-center shadow-xl w-80 border border-gray-300  p-5 rounded-2xl cursor-pointer">
-            <h2 className="text-xl font-semibold tracking-tight">{item.name}</h2>
-
-            <div className="w-full p-5 my-4 rounded-xl border border-gray-200">
-              <img
-                className="w-full h-48 object-contain"
-                src={item.thumbnail}
-                alt={item.name}
-              />
-            </div>
-
-            <div className="flex flex-col items-center w-full">
-              <p className="text-lg font-medium">$ {item.price}</p>
-
-              <div className="mt-3 flex gap-3">
-                <button className="px-3 py-1 bg-[#312D81] text-white rounded-lg cursor-pointer">
-                  Add to Cart
-                </button>
-                <button className="px-3 py-1 bg-[#312D81] text-white rounded-lg cursor-pointer">
-                  See More
-                </button>
-              </div>
-            </div>
-          </div>
-          
-          </>
-        ))
-      }
+                  <div className="w-full p-5 my-4 rounded-xl border border-gray-200">
+                    <img
+                      className="w-full h-48 object-contain"
+                      src={item.thumbnail}
+                      alt={item.name}
+                    />
+                  </div>
+                  <div className="flex flex-col items-center w-full">
+                    <p className="text-lg font-medium">$ {item.price}</p>
+                    <div className="mt-3 flex gap-3">
+                      <button className="px-3 py-2 bg-[#312D81] hover:bg-[#312d81e5] transition shadow-2xl text-white rounded-lg cursor-pointer">
+                        <Link to='/cart'>Add to Cart</Link>
+                      </button>
+                      <button className="px-3 py-2 bg-[#312D81] hover:bg-[#312d81e5] transition shadow-2xl text-white rounded-lg cursor-pointer">
+                        <Link to='/products'>See More</Link>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </>
+            ))
+          }
 
 
 
