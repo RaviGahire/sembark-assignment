@@ -49,11 +49,12 @@ export const HomePage = () => {
 
   return (
     <>
-      <section aria-label="Home page" className="max-w-7xl mx-auto mt-4">
+      {/* text-[#312D81] #17152B */}
+      <section aria-label="Home page" className="max-w-7xl mx-auto mt-4 ">
         {/* Filter Products */}
-        <div className="rounded border border-blue-400  flex justify-between items-center p-2 ">
-          <p>Products</p>
-          <select className="w-50 border cursor-pointer bg-blue-400 text-white px-3 py-2 outline-amber-100 rounded">
+        <div className="rounded border border-[#17152b42]  flex justify-between items-center p-2 ">
+          <p className="text-[#17152B] font-bold text-2xl">Products</p>
+          <select className="w-50 border cursor-pointer bg-blue-400 text-white px-3 py-2 outline-amber-100 rounded ">
             <option hidden className="text-white" value="x">Select product</option>
             <option className="text-white rounded" value="x">All products</option>
             <option className="text-white rounded" value="x">x</option>
@@ -61,24 +62,41 @@ export const HomePage = () => {
           </select>
         </div>
         {/* product grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 place-items-center bg-gray-400  mt-4 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 place-items-center  h-screen  mt-4 ">
 
-          {/* Product Card */}
-          <div className=" shadow-xl w-100 bg-yellow-400 p-4  ">
-            <div className="text-xl font-semibold ">Product Name</div>
-            <div className=""><img src="https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" /></div>
-            <div className="">
-              <p>10000k</p>
+      {
+        sampleProducts.map((item,index)=>(
+          <>
+              {/* Product Card */}
+          <div className="flex flex-col items-center shadow-xl w-80 border border-gray-300  p-5 rounded-2xl cursor-pointer">
+            <h2 className="text-xl font-semibold tracking-tight">{item.name}</h2>
 
-              <div>
-                <button>Add to Cart</button>
-                <button>See More</button>
-
-              </div>
+            <div className="w-full p-5 my-4 rounded-xl border border-gray-200">
+              <img
+                className="w-full h-48 object-contain"
+                src={item.thumbnail}
+                alt={item.name}
+              />
             </div>
 
+            <div className="flex flex-col items-center w-full">
+              <p className="text-lg font-medium">$ {item.price}</p>
 
+              <div className="mt-3 flex gap-3">
+                <button className="px-3 py-1 bg-[#312D81] text-white rounded-lg cursor-pointer">
+                  Add to Cart
+                </button>
+                <button className="px-3 py-1 bg-[#312D81] text-white rounded-lg cursor-pointer">
+                  See More
+                </button>
+              </div>
+            </div>
           </div>
+          
+          </>
+        ))
+      }
+
 
 
         </div>
