@@ -1,4 +1,4 @@
-import { Children, createContext, useEffect, useState } from "react"
+import { createContext, useEffect, useState } from "react"
 import { HomePage } from "./Components/HomePage"
 
 
@@ -8,6 +8,7 @@ const Api_data = createContext([])
 export const API_Context = () => {
     const [apiData, setapiData] = useState([])
 
+    //Product data function
     const product_data = async () => {
         try {
             const response = await fetch('https://fakestoreapi.com/products')
@@ -20,14 +21,15 @@ export const API_Context = () => {
     }
 
 
-
     useEffect(() => {
+        //called product data function
         product_data()
     }, [])
     return (
         <>
 
             <Api_data.Provider value={apiData}>
+                {/* passed data to hompe page */}
                 <HomePage />
             </Api_data.Provider>
 
