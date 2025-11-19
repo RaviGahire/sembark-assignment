@@ -1,6 +1,16 @@
 import { Link } from "react-router";
+import { useContext } from "react";
+import { Api_data } from "../API_Context";
+
+
 
 export const HomePage = () => {
+
+const data = useContext(Api_data)
+console.log('Data from Homepage',data)
+
+
+
   const sampleProducts = [
     {
       id: 1,
@@ -63,17 +73,17 @@ export const HomePage = () => {
         {/* product grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 place-items-center  h-screen  mt-4 ">
           {
-            sampleProducts.map((item, index) => (
+            data.map((item, index) => (
               <>
                 {/* Product Card */}
-                <div className="flex flex-col items-center shadow-xl w-80 border border-gray-300  p-5 rounded-2xl cursor-pointer">
-                  <h2 className="text-xl font-semibold tracking-tight">{item.name}</h2>
+                <div key={index} className="flex flex-col items-center shadow-xl w-80  border border-gray-300  p-5 rounded-2xl cursor-pointer">
+                  <h2 className="text-sm text-gray-700 font-semibold tracking-tight">{item.title.trim('')}</h2>
 
                   <div className="w-full p-5 my-4 rounded-xl border border-gray-200">
                     <img
                       className="w-full h-48 object-contain"
-                      src={item.thumbnail}
-                      alt={item.name}
+                      src={item.image}
+                      alt={item.title}
                     />
                   </div>
                   <div className="flex flex-col items-center w-full">
