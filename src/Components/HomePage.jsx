@@ -1,13 +1,31 @@
 import { Link } from "react-router";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Api_data } from "../API_Context";
 
 
 
 export const HomePage = () => {
+const [filter,setFilter] = useState([])
+
 
 const data = useContext(Api_data)
-console.log('Data from Homepage',data)
+
+const filterProducts=(e)=>{
+// setFilter(e.target.value)
+
+
+}
+
+
+
+
+const filteredData = data.filter((item,index)=>{
+  // console.log(item.category === )
+})
+
+
+
+
 
   return (
     <>
@@ -16,11 +34,13 @@ console.log('Data from Homepage',data)
         {/* Filter Products */}
         <div className="rounded border border-[#17152b42]  flex justify-between items-center p-2 ">
           <p className="text-[#17152B] font-bold text-2xl">Products</p>
-          <select className="w-50 border cursor-pointer bg-blue-400 text-white px-3 py-2 outline-amber-100 rounded ">
-            <option hidden className="text-white" value="x">Select product</option>
-            <option className="text-white rounded" value="x">All products</option>
-            <option className="text-white rounded" value="x">x</option>
-            <option className="text-white rounded" value="x">x</option>
+          <select className="w-50 border cursor-pointer bg-blue-400 text-white px-3 py-2 outline-amber-100 rounded" onChange={(e)=>filterProducts(e)}>
+            <option hidden className="text-white" >Select product</option>
+            <option className="text-white rounded" value="all-products">All products</option>
+            <option className="text-white rounded" value="women's clothing">Women's clothing</option>
+            <option className="text-white rounded" value="men's clothing">Men's clothing</option>
+            <option className="text-white rounded" value="electronics">Electronics</option>
+            <option className="text-white rounded" value="jewelery">Jewelery</option>
           </select>
         </div>
         {/* product grid */}
