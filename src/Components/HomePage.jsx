@@ -7,7 +7,7 @@ import { Api_data } from "../API_Context";
 export const HomePage = () => {
 
 const data = useContext(Api_data)
-// console.log('Data from Homepage',data)
+console.log('Data from Homepage',data)
 
   return (
     <>
@@ -30,7 +30,7 @@ const data = useContext(Api_data)
               <>
                 {/* Product Card */}
                 <div key={index} className="flex flex-col items-center shadow-xl w-80  border border-gray-300  p-5 rounded-2xl cursor-pointer">
-                  <h2 className="text-sm text-gray-700 font-semibold tracking-tight">{item.title.trim('')}</h2>
+                  <h2 className="text-sm text-gray-700 font-semibold tracking-tight">{item.title}</h2>
 
                   <div className="w-full p-5 my-4 rounded-xl border border-gray-200">
                     <img
@@ -40,7 +40,7 @@ const data = useContext(Api_data)
                     />
                   </div>
                   <div className="flex flex-col items-center w-full">
-                    <p className="text-lg font-medium"> Price ${item.price}</p>
+                    <p className="text-lg font-medium"> Price ₹{item.price}</p>
                     <div className="mt-3 flex gap-3">
                       <button className="px-3 py-2 bg-[#312D81] hover:bg-[#312d81e5] transition shadow-2xl text-white rounded-lg cursor-pointer">
                         <Link to='/cart'>Add to Cart</Link>
