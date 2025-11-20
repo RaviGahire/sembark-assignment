@@ -1,16 +1,53 @@
-# React + Vite
+# 🛍️ SEMBARK – E-Commerce React App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to **SEMBARK**, a simple and clean e-commerce web application built using **React + Tailwind CSS**.  
+This app allows users to browse products, view product details, add products to cart, and manage their shopping items.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+### 🖥️ Core Features
+- ✔ Display all products
+- ✔ View single product details with dynamic URL
+- ✔ Add items to cart
+- ✔ Remove items from cart
+- ✔ View total items and total cart value
+- ✔ Mobile responsive navbar with hamburger menu
+- ✔ Shareable product detail links
+- ✔ Filters and sorting **do NOT persist** on refresh or sharing (temporary state only)
+- ✔ LocalStorage cart persistence
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🎨 UI Features
+- ✔ Tailwind-based modern UI  
+- ✔ Mobile-friendly design  
+- ✔ Responsive navbar, footer, and pages  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📦 Tech Stack
+
+- **React** (Vite)
+- **Tailwind CSS**
+- **React Router**
+- **LocalStorage**
+- **Tabler Icons**
+- **FakeStore API** (for product data)
+
+---
+
+## 🛠️ Installation & Setup
+
+npm install
+
+npm run dev
+
+http://localhost:5173/
+
+
+Follow these steps to run the application on your local system.
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/RaviGahire/sembark-assignment.git
