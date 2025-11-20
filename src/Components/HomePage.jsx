@@ -5,24 +5,18 @@ import { Api_data } from "../API_Context";
 
 
 export const HomePage = () => {
-const [filter,setFilter] = useState([])
+const [selectvalue, setSelectValue] = useState('')
+
 
 
 const data = useContext(Api_data)
 
-const filterProducts=(e)=>{
-// setFilter(e.target.value)
 
 
-}
+// filter by category
+const filteredData = data.filter((item)=>selectvalue === item.category )
 
-
-
-
-const filteredData = data.filter((item,index)=>{
-  // console.log(item.category === )
-})
-
+console.log(filteredData)
 
 
 
@@ -34,7 +28,7 @@ const filteredData = data.filter((item,index)=>{
         {/* Filter Products */}
         <div className="rounded border border-[#17152b42]  flex justify-between items-center p-2 ">
           <p className="text-[#17152B] font-bold text-2xl">Products</p>
-          <select className="w-50 border cursor-pointer bg-blue-400 text-white px-3 py-2 outline-amber-100 rounded" onChange={(e)=>filterProducts(e)}>
+          <select className="w-50 border cursor-pointer bg-blue-400 text-white px-3 py-2 outline-amber-100 rounded" onChange={(e)=>setSelectValue(e.target.value)}>
             <option hidden className="text-white" >Select product</option>
             <option className="text-white rounded" value="all-products">All products</option>
             <option className="text-white rounded" value="women's clothing">Women's clothing</option>
@@ -46,7 +40,7 @@ const filteredData = data.filter((item,index)=>{
         {/* product grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 place-items-center  h-screen  mt-4 ">
           {
-            data.map((item, index) => (
+            filteredData.map((item, index) => (
               <>
                 {/* Product Card */}
                 <div key={index} className="flex flex-col items-center shadow-xl w-80  border border-gray-300  p-5 rounded-2xl cursor-pointer">
