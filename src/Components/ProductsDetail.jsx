@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link, useParams, useNavigate } from "react-router"
+import { Footer } from "./Footer";
 
 
 
@@ -39,8 +40,8 @@ export const ProductsDetail = () => {
 
   return (
     <>
-      <div className="bg-gray-100 min-h-screen">
-        <h1 className="text-center text-3xl p-5 font-bold">Product Detail</h1>
+      <div aria-label="product-detail-section" className="bg-gray-100  md:py-10">
+        <h1 className="text-center text-3xl p-5 font-bold uppercase">Product Detail</h1>
         <div className=" flex items-center justify-center px-4">
           <div className="max-w-4xl w-full bg-white shadow-xl rounded-2xl p-6 md:p-10 grid md:grid-cols-2 gap-10">
             <div className="flex items-center justify-center bg-gray-50 rounded-xl p-6">
@@ -73,6 +74,7 @@ export const ProductsDetail = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   )
 }

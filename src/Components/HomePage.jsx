@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router";
 import { useContext, useState } from "react";
 import { Api_data } from "../API_Context";
+import { Footer } from "./Footer";
 
 
 
@@ -24,7 +25,7 @@ export const HomePage = () => {
   return (
     <>
       {/* text-[#312D81] #17152B */}
-      <section aria-label="Home-page" className="max-w-7xl mx-auto mt-4 px-2 md:px-1 ">
+      <section aria-label="Home-page" className="max-w-7xl mx-auto mt-4 px-2 md:px-1 py-5 md:py-10 ">
         {/* Filter Products */}
         <div className="rounded border border-gray-300 flex justify-between items-center p-1 md:p-2 ">
           <p className="text-[#17152B] tracking-tighter font-bold text-xl md:text-2xl">OUR PRODUCTS</p>
@@ -38,7 +39,7 @@ export const HomePage = () => {
           </select>
         </div>
         {/* product grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 place-items-center  h-screen  mt-4 ">
+        <div className="grid grid-rows-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 place-items-center  h-auto  mt-4 ">
           {
             filteredData.map((item, index) => (
               <>
@@ -65,11 +66,15 @@ export const HomePage = () => {
                     </div>
                   </div>
                 </div>
+                
               </>
             ))
           }
         </div>
       </section>
+
+<Footer/>
     </>
+
   )
 }

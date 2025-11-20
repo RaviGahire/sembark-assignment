@@ -10,7 +10,7 @@ export const Navbar = () => {
     const tabs = [
         { id: 1, lable: 'Home', path: '/', },
         { id: 2, lable: 'Products', path: '/productdetails', },
-        { id: 3, lable: 'About Us', path: '/about', },
+        { id: 3, lable: 'About Us', path: '/aboutus', },
     ];
     return (
         <header className="w-full bg-white shadow-xl">
