@@ -24,17 +24,17 @@ export const HomePage = () => {
   return (
     <>
       {/* text-[#312D81] #17152B */}
-      <section aria-label="Home-page" className="max-w-7xl mx-auto mt-4 ">
+      <section aria-label="Home-page" className="max-w-7xl mx-auto mt-4 px-2 md:px-1 ">
         {/* Filter Products */}
-        <div className="rounded border border-[#17152b42]  flex justify-between items-center p-2 ">
-          <p className="text-[#17152B] font-bold text-2xl">Products</p>
-          <select className="w-50 border cursor-pointer bg-blue-400 text-white px-3 py-2 outline-amber-100 rounded" onChange={(e) => setSelectValue(e.target.value)}>
-            <option hidden className="text-white" >Select product</option>
-            <option className="text-white rounded" value="all-products">All products</option>
-            <option className="text-white rounded" value="women's clothing">Women's clothing</option>
-            <option className="text-white rounded" value="men's clothing">Men's clothing</option>
-            <option className="text-white rounded" value="electronics">Electronics</option>
-            <option className="text-white rounded" value="jewelery">Jewelery</option>
+        <div className="rounded border border-gray-300 flex justify-between items-center p-1 md:p-2 ">
+          <p className="text-[#17152B] tracking-tighter font-bold text-xl md:text-2xl">OUR PRODUCTS</p>
+          <select className=" md:w-50 border cursor-pointer bg-[#312D81] text-white px-3 py-2 outline-amber-100 rounded" onChange={(e) => setSelectValue(e.target.value)}>
+            <option hidden >Select Product</option>
+            <option className="text-gray-300 font-semibold cursor-pointer tracking-tight " value="women's clothing">Women's clothing</option>
+            <option className="text-gray-300 font-semibold cursor-pointer tracking-tight " value="men's clothing">Men's clothing</option>
+            <option className="text-gray-300 font-semibold cursor-pointer tracking-tight " value="all-products">All products</option>
+            <option className="text-gray-300 font-semibold cursor-pointer tracking-tight " value="electronics">Electronics</option>
+            <option className="text-gray-300 font-semibold cursor-pointer tracking-tight " value="jewelery">Jewelery</option>
           </select>
         </div>
         {/* product grid */}
@@ -43,8 +43,8 @@ export const HomePage = () => {
             filteredData.map((item, index) => (
               <>
                 {/* Product Card */}
-                <div key={index} className="flex flex-col items-center shadow-xl w-80  border border-gray-300  p-5 rounded-2xl cursor-pointer">
-                  <h2 className="text-sm text-gray-700 font-semibold tracking-tight">{item.title}</h2>
+                <div key={index} className="flex flex-col items-center w-full border border-gray-300 p-5 rounded-2xl cursor-pointer shadow-md hover:shadow-xl transition">
+                  <h2 className="text-sm text-gray-800 font-semibold tracking-tight">{item.title}</h2>
 
                   <div className="w-full p-5 my-4 rounded-xl border border-gray-200">
                     <img
@@ -54,12 +54,12 @@ export const HomePage = () => {
                     />
                   </div>
                   <div className="flex flex-col items-center w-full">
-                    <p className="text-lg font-medium"> Price ₹{item.price}</p>
+                    <p className="text-sm text-gray-500 font-medium"> Price ₹{item.price}</p>
                     <div className="mt-3 flex gap-3">
-                      <button onClick={shareProduct} className="px-3 py-2 bg-[#312D81] hover:bg-[#312d81e5] transition shadow-2xl text-white rounded-lg cursor-pointer">
+                      <button onClick={shareProduct} className="px-3 py-2 bg-[#312D81] hover:bg-[#312d81e5] transition shadow-2xl text-white rounded-lg cursor-pointer font-semibold tracking-tight">
                         Share Product
                       </button>
-                      <button className="px-3 py-2 bg-[#312D81] hover:bg-[#312d81e5] transition shadow-2xl text-white rounded-lg cursor-pointer">
+                      <button className="px-3 py-2 bg-[#312D81] hover:bg-[#312d81e5] transition shadow-2xl text-white rounded-lg cursor-pointer font-semibold tracking-tight">
                         <Link to={`/productdetails/${item.id}`}>View Details</Link>
                       </button>
                     </div>
