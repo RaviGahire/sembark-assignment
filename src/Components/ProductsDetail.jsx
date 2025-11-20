@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react"
-import { Link, useParams } from "react-router"
+import { Link, useParams, useNavigate } from "react-router"
 
 
 
-export const ProductsDetail = (props) => {
+export const ProductsDetail = () => {
+  const [data, setdata] = useState({});
+  const navigate = useNavigate();
 
-
-  const [data, setdata] = useState({})
 
   const params = useParams();
+  const byDefaultValue = 5
+  const productid = params.id || byDefaultValue
 
-  const productid = params.id || 1
   useEffect(() => {
     try {
       fetch(`https://fakestoreapi.com/products/${productid}`)
@@ -23,6 +24,17 @@ export const ProductsDetail = (props) => {
   }, [productid])
 
 
+  // Add to cart 
+  const AddToCart = () => {
+    const product = JSON.parse(localStorage.getItem("cart")) || []
+    product.push(data)
+
+    localStorage.setItem("cart", JSON.stringify(product))
+    navigate('/cart')
+
+    alert('Added in cart')
+
+  }
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
@@ -44,8 +56,8 @@ export const ProductsDetail = (props) => {
             <p className="text-xl font-medium text-gray-600 mt-4">{data.price}</p>
           </div>
           <div className="mt-8 flex flex-col gap-3">
-            <button className="w-full bg-[#312D81] hover:bg-[#312d81e5] transition cursor-pointer text-white py-3 rounded-lg text-md md:text-lg font-bold">
-              <Link to={'/cart'} onClick={() => AddProduct()}>Add to Cart</Link>
+            <button onClick={() => AddToCart()} className="w-full bg-[#312D81] hover:bg-[#312d81e5] transition cursor-pointer text-white py-3 rounded-lg text-md md:text-lg font-bold">
+              Add to Cart
             </button>
             <button className="w-full bg-[#312D81] hover:bg-[#312d81e5] transition cursor-pointer text-white py-3 rounded-lg text-md md:text-lg font-bold">
               <Link to={'/'}>Continue Shopping</Link>
@@ -56,3 +68,4 @@ export const ProductsDetail = (props) => {
     </div>
   )
 }
+
