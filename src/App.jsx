@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route, useParams } from "react-router"
 import { ProductsDetail } from "./Components/ProductsDetail"
 import { API_Context } from "./API_Context"
 import { AboutUs } from "./Components/AboutUs"
+import { PageNotFound } from "./Components/PageNotFound"
 
 
 function App() {
@@ -16,7 +17,10 @@ function App() {
      { path: '/productdetails', element: <ProductsDetail  /> },
     { path: '/productdetails/:id', element: <ProductsDetail /> },
     { path: '/aboutus', element: <AboutUs /> },
-    { path: '/cart', element: <Cart /> }
+    { path: '/cart', element: <Cart /> },
+    // Fallback route
+    { path: '*', element: <PageNotFound /> }
+
   ]
 
 
