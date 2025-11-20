@@ -1,22 +1,26 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router"
+import { Link, useParams } from "react-router"
 
 
 
-export const ProductsDetail = () => {
-  const [data, setdata] = useState([])
+export const ProductsDetail = (props) => {
+
+
+  const [data, setdata] = useState({})
 
   const params = useParams();
-  const productid = params.id
 
-
+  const productid = params.id || 1
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${productid}`)
-      .then(response => response.json())
-      .then(data => setdata(data));
-  }, [])
+    try {
+      fetch(`https://fakestoreapi.com/products/${productid}`)
+        .then(response => response.json())
+        .then(data => setdata(data));
+    } catch (err) {
+      console.log(err)
+    }
 
-  console.log(data)
+  }, [productid])
 
 
 
@@ -41,14 +45,13 @@ export const ProductsDetail = () => {
           </div>
           <div className="mt-8 flex flex-col gap-3">
             <button className="w-full bg-[#312D81] hover:bg-[#312d81e5] transition cursor-pointer text-white py-3 rounded-lg text-md md:text-lg font-bold">
-              Add to Cart
+              <Link to={'/cart'} onClick={() => AddProduct()}>Add to Cart</Link>
             </button>
             <button className="w-full bg-[#312D81] hover:bg-[#312d81e5] transition cursor-pointer text-white py-3 rounded-lg text-md md:text-lg font-bold">
-              Buy Now
+              <Link to={'/'}>Continue Shopping</Link>
             </button>
           </div>
         </div>
-
       </div>
     </div>
   )

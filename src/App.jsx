@@ -12,6 +12,7 @@ function App() {
   //Routes object
   const routes = [
     { path: '/', element: <API_Context><HomePage /></API_Context> },
+     { path: '/productdetails', element: <ProductsDetail  /> },
     { path: '/productdetails/:id', element: <ProductsDetail /> },
     { path: '/cart', element: <Cart /> }
   ]

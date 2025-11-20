@@ -2,6 +2,9 @@ import { IconShoppingCartCheck } from "@tabler/icons-react";
 import { NavLink } from "react-router";
 
 export const Navbar = () => {
+
+
+    
     const tabs = [
         { id: 1, lable: 'Home', path: '/', },
         { id: 2, lable: 'Products', path: '/productdetails', },
