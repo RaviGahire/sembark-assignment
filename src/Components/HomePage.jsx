@@ -1,6 +1,7 @@
-import { Link } from "react-router";
+import { Link, useParams } from "react-router";
 import { useContext, useState } from "react";
 import { Api_data } from "../API_Context";
+
 
 
 
@@ -10,7 +11,15 @@ export const HomePage = () => {
   const data = useContext(Api_data)
 
   // filter by category
-  const filteredData = selectvalue ?  data.filter((item) => selectvalue === item.category || selectvalue === 'all-products') : data
+  const filteredData = selectvalue ? data.filter((item) => selectvalue === item.category || selectvalue === 'all-products') : data;
+
+
+  // Share Btn
+  const shareProduct = () => {
+    navigator.clipboard.writeText(window.location.href);
+    alert("Link copied!");
+  };
+
 
   return (
     <>
@@ -47,11 +56,11 @@ export const HomePage = () => {
                   <div className="flex flex-col items-center w-full">
                     <p className="text-lg font-medium"> Price ₹{item.price}</p>
                     <div className="mt-3 flex gap-3">
-                      <button className="px-3 py-2 bg-[#312D81] hover:bg-[#312d81e5] transition shadow-2xl text-white rounded-lg cursor-pointer">
-                        <Link to='/cart'>Add to Cart</Link>
+                      <button onClick={shareProduct} className="px-3 py-2 bg-[#312D81] hover:bg-[#312d81e5] transition shadow-2xl text-white rounded-lg cursor-pointer">
+                        Share Product
                       </button>
                       <button className="px-3 py-2 bg-[#312D81] hover:bg-[#312d81e5] transition shadow-2xl text-white rounded-lg cursor-pointer">
-                        <Link to={`/productdetails/${item.id}`}>See More</Link>
+                        <Link to={`/productdetails/${item.id}`}>View Details</Link>
                       </button>
                     </div>
                   </div>
