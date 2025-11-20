@@ -1,4 +1,4 @@
-import { IconTrash } from '@tabler/icons-react'
+import { IconBasketOff, IconShoppingCartCheck, IconTrash } from '@tabler/icons-react'
 import React, { useEffect, useState } from 'react'
 
 export const Cart = () => {
@@ -11,6 +11,8 @@ export const Cart = () => {
     setCart(product);
   }, [])
 
+  const cartItems = cart.length;
+  const total = cart.reduce((acc,elem)=>elem.price + acc,0)
 
 
 // Deleting item from the localStorage
@@ -26,8 +28,15 @@ export const Cart = () => {
     <section aria-label='cart-page'>
       <div className="min-h-screen bg-gray-100 p-6 flex flex-col items-center">
         <div className="w-full max-w-3xl">
-          <h1 className="text-3xl font-bold mb-8">Shopping Cart</h1>
-          {cart.length === 0 && <h2>Cart is empty</h2>}
+          <div className="flex justify-between my-8">
+            <div className='text-3xl font-bold flex items-center gap-4'> 
+              <IconShoppingCartCheck size={28} /><h2>Shopping Cart </h2>
+              </div>{cart.length === 0 && 
+              <div className='text-xl font-semibold text-gray-500 flex items-center justify-center gap-2 '>
+                Cart is empty 
+                <IconBasketOff stroke={2} /></div> || <div className='text-xl font-semibold text-gray-500'>{cartItems} Total Items</div>}</div>
+          
+
           {/* Cart Item */}
           {cart.map((item) => {
 
@@ -55,8 +64,8 @@ export const Cart = () => {
 
           {/* Total Section */}
           <div className="bg-white rounded-2xl shadow p-6 mt-6 flex justify-between items-center">
-            <h2 className="text-xl font-bold">Total</h2>
-            <p className="text-2xl font-bold">₹2297</p>
+            <h2 className="text-xl font-bold">Total Bill</h2>
+            <p className="text-2xl font-bold">₹{Math.round(total)}</p>
           </div>
 
           {/* Checkout Button */}
