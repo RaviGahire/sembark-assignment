@@ -51,7 +51,7 @@ export const HomePage = () => {
                         <Link to='/cart'>Add to Cart</Link>
                       </button>
                       <button className="px-3 py-2 bg-[#312D81] hover:bg-[#312d81e5] transition shadow-2xl text-white rounded-lg cursor-pointer">
-                        <Link to='/products'>See More</Link>
+                        <Link to={`/productdetails/${item.id}`}>See More</Link>
                       </button>
                     </div>
                   </div>

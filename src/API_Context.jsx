@@ -2,8 +2,10 @@ import { createContext, useEffect, useState } from "react"
 import { HomePage } from "./Components/HomePage"
 
 
+
 // Context
 const Api_data = createContext([])
+
 
 export const API_Context = () => {
     const [apiData, setapiData] = useState([])
@@ -31,6 +33,7 @@ export const API_Context = () => {
             <Api_data.Provider value={apiData}>
                 {/* passed data to hompe page */}
                 <HomePage />
+            
             </Api_data.Provider>
 
         </>

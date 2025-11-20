@@ -4,7 +4,7 @@ import { NavLink } from "react-router";
 export const Navbar = () => {
     const tabs = [
         { id: 1, lable: 'Home', path: '/', },
-        { id: 2, lable: 'Products', path: '/products', },
+        { id: 2, lable: 'Products', path: '/productdetails', },
         { id: 3, lable: <IconShoppingCartCheck stroke={2} />, path: '/cart', },
     ];
     return (
