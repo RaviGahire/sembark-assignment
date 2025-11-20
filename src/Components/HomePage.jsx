@@ -5,21 +5,12 @@ import { Api_data } from "../API_Context";
 
 
 export const HomePage = () => {
-const [selectvalue, setSelectValue] = useState('')
+  const [selectvalue, setSelectValue] = useState('')
 
+  const data = useContext(Api_data)
 
-
-const data = useContext(Api_data)
-
-
-
-// filter by category
-const filteredData = data.filter((item)=>selectvalue === item.category )
-
-console.log(filteredData)
-
-
-
+  // filter by category
+  const filteredData = selectvalue ?  data.filter((item) => selectvalue === item.category || selectvalue === 'all-products') : data
 
   return (
     <>
@@ -28,7 +19,7 @@ console.log(filteredData)
         {/* Filter Products */}
         <div className="rounded border border-[#17152b42]  flex justify-between items-center p-2 ">
           <p className="text-[#17152B] font-bold text-2xl">Products</p>
-          <select className="w-50 border cursor-pointer bg-blue-400 text-white px-3 py-2 outline-amber-100 rounded" onChange={(e)=>setSelectValue(e.target.value)}>
+          <select className="w-50 border cursor-pointer bg-blue-400 text-white px-3 py-2 outline-amber-100 rounded" onChange={(e) => setSelectValue(e.target.value)}>
             <option hidden className="text-white" >Select product</option>
             <option className="text-white rounded" value="all-products">All products</option>
             <option className="text-white rounded" value="women's clothing">Women's clothing</option>
